@@ -1,5 +1,5 @@
 public class Main{
-
+	// int count[]을 쓰지 말고 boolean[] check = new boolean[10000];을 써보자
 	static int count[] = new int[10000];
 	public static void sum(int a) {
 		count[a]++;
