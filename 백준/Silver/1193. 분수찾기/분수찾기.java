@@ -14,12 +14,16 @@ public class Main{
         int N = Integer.parseInt(bf.readLine());
         int num = 1;
         int plus_num = 1;
-        
+        // 1일때 1/1 출력
         while(true) {
         	if(N==1) {
         		System.out.println(N+"/"+N);
         		break;
         	}
+            // 한 대각선당 한 그룹
+            // 그룹당 분수갯수 -> 1, 2, 3, 4, 5개 ... 
+            // 총갯수 1,3,6,10,15... 증가한 분수 갯수 1,2,3,4,5 ...
+            // 분모, 분자 숫자 합 = 증가한 분수 갯수 + 1
         	else {
         		if(N<=num) {
         			int a = N - (num - plus_num);
