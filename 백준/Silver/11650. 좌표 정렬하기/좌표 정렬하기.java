@@ -19,7 +19,7 @@ import javax.naming.spi.DirStateFactory.Result;
 public class Main{
     public static void main(String args[]) throws IOException{
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        
+        //int N = Integer.parseInt(st.nextToken());
         int N = Integer.parseInt(bf.readLine());
         StringTokenizer st;
         int arr[][] = new int[N][2];
@@ -28,18 +28,13 @@ public class Main{
         	arr[i][0] = Integer.parseInt(st.nextToken());
         	arr[i][1] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(arr,new Comparator<int[]>() {
-
-			@Override
-			public int compare(int[] o1, int[] o2) {
-				if(o1[0]==o2[0]) {
-					return o1[1] - o2[1];
-				}
-				else {
-					return o1[0] - o2[0];
-				}
+        Arrays.sort(arr,(o1, o2) ->{
+			if(o1[0]==o2[0]) {
+				return o1[1] - o2[1];
 			}
-        	
+			else {
+				return o1[0] - o2[0];
+			}			
         });
         for(int i=0; i<N; i++) {
         	System.out.println(arr[i][0] + " " + arr[i][1]);
