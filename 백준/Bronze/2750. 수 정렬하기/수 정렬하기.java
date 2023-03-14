@@ -1,40 +1,34 @@
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
-import java.math.BigInteger;
-import java.security.DrbgParameters;
-import java.awt.print.Paper;
-import java.awt.print.Printable;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.StringTokenizer;
 
-import javax.naming.spi.DirStateFactory.Result;
+import java.util.Stack;
 
 public class Main{
-    public static void main(String args[]) throws IOException{
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(bf.readLine());
-    	int result[] = new int[N];
-    	int max = 0;
-    	for(int i = 0; i <N;i++) {
-    		result[i] = Integer.parseInt(bf.readLine());
+	public static void main(String args[]) throws IOException{
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	int N = Integer.parseInt(br.readLine());
+    	int []arr = new int[N];
+    	for(int i=0; i<N; i++) {
+    		arr[i]=Integer.parseInt(br.readLine());
     	}
-    	for(int i =0; i<N-1; i++) {
-    		for(int j = i+1; j<N; j++) {
-    			if(result[i]>result[j]) {
-    				int temp = result[i];
-    				result[i]= result[j];
-    				result[j] = temp;
+    	//버블 정렬 -- 인접한 두수 비교하여 스왑
+    	for(int i=N-1; i>0; i--) {
+    		for(int j=0; j<i; j++) {
+    			if(arr[j]>arr[j+1]) {
+    				int temp = arr[j];
+    				arr[j] = arr[j+1];
+    				arr[j+1] = temp;
     			}
     		}
     	}
-    	for(int i:result) {
-    		System.out.println(i);
+    	StringBuilder sb = new StringBuilder();
+    	for(int i:arr) {
+    		sb.append(i).append('\n');
     	}
-    }
+    	System.out.println(sb);
+	}
 }
-    
